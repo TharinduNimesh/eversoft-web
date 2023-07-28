@@ -309,7 +309,7 @@ h6 {
   bottom: 15px;
   left: 15px;
   padding: 10px 0;
-  background-color: #fff;
+  background-color: #000;
   overflow-y: auto;
   transition: 0.3s;
 }
@@ -318,7 +318,7 @@ h6 {
 .navbar-mobile a:focus {
   padding: 10px 20px;
   font-size: 15px;
-  color: #151515;
+  color: #fff;
 }
 
 .navbar-mobile a:hover,
@@ -623,11 +623,12 @@ section {
 --------------------------------------------------------------*/
 .services .icon-box {
   text-align: center;
-  border: 1px solid #00a3ff;
+  /* border: 1px solid #00a3ff; */
   border-radius: 20px;
   padding: 80px 20px;
   transition: all ease-in-out 0.3s;
-  background: #000;
+  background: #151515;
+  box-shadow: 0 0 5px #0a75c3;
 }
 
 .services .icon-box .icon {
@@ -672,7 +673,7 @@ section {
 
 .services .icon-box:hover {
   border-color: #0a75c3;
-  box-shadow: 0px 0 25px 0 rgb(27, 27, 27);
+  box-shadow: 0px 0 10px 0 #0a75c3;
   transform: translateY(-10px);
 }
 
@@ -1025,6 +1026,12 @@ section {
   border-radius: 50%;
   border: 6px solid rgba(255, 255, 255, 0.15);
   margin: 0 auto;
+  transition: all ease-in-out 0.3s;
+  filter: grayscale(100%);
+}
+
+.testimonials .testimonial-item:hover .testimonial-img {
+  filter: none;
 }
 
 .testimonials .testimonial-item h3 {
@@ -1193,6 +1200,15 @@ section {
 /*--------------------------------------------------------------
 # Contact
 --------------------------------------------------------------*/
+.contact .map-container {
+  padding: 5px;
+  background-color: #00a3ff;
+}
+
+.contact .map-container iframe {
+  filter: invert(92%) contrast(83%);
+}
+
 .contact .info {
   width: 100%;
 }

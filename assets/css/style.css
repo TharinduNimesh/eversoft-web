@@ -1134,6 +1134,7 @@ section {
 }
 
 .team .member {
+  width: 320px;
   margin-bottom: 20px;
   overflow: hidden;
   border-radius: 5px;
@@ -1210,10 +1211,12 @@ section {
 
 .team .member .member-img img {
   transition: all ease-in-out 0.3s;
+  filter: grayscale(100%) contrast(120%);
 }
 
 .team .member:hover .member-img img {
-  transform: scale(1.1) rotate(3deg);
+  filter: none;
+  transform: scale(1.1) rotate(2deg);
 }
 
 .team .member:hover .social {

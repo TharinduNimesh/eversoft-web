@@ -1,6 +1,4 @@
 <script setup>
-const config = useAppConfig();
-
 onBeforeMount(() => {
   setColorTheme();
 });
@@ -8,7 +6,7 @@ onBeforeMount(() => {
 // set user prefer color theme, or default blue
 function setColorTheme() {
   const colorTheme = localStorage.getItem("color-theme");
-  config.ui.primary = colorTheme || "blue";
+  useUIStore().setColor(colorTheme || "blue");
 }
 </script>
 

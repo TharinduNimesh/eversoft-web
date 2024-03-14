@@ -13,7 +13,7 @@ function signIn() {
 </script>
 
 <template>
-  <div class="w-full bg-primary-bkg">
+  <div class="w-full bg-primary-bkg p-5">
     <!-- Container Start -->
     <UContainer class="grid place-items-center min-h-screen">
       <div
@@ -25,7 +25,12 @@ function signIn() {
         </div>
 
         <!-- Form Start -->
-        <UForm :schema="LoginValidation" :state="form" @submit="signIn" class="grid gap-7">
+        <UForm
+          :schema="LoginValidation"
+          :state="form"
+          @submit="signIn"
+          class="grid gap-7"
+        >
           <UFormGroup name="email" label="Email Address">
             <UInput
               v-model="form.email"
@@ -33,16 +38,22 @@ function signIn() {
               placeholder="Enter Email Address"
             />
           </UFormGroup>
-          <UFormGroup name="password" label="Password">
-            <template #hint>
-              <ULink class="text-sm text-primary"> Forgot Password ? </ULink>
-            </template>
 
-            <template #help>
-              <UCheckbox v-model="form.remember_me" label="Remember Me" />
-            </template>
-            <UPasswordInput v-model="form.password" />
-          </UFormGroup>
+          <!-- Password Start -->
+          <div>
+            <UFormGroup name="password" label="Password">
+              <template #hint>
+                <ULink class="text-sm text-primary"> Forgot Password ? </ULink>
+              </template>
+              <UPasswordInput v-model="form.password" />
+            </UFormGroup>
+            <UCheckbox
+              v-model="form.remember_me"
+              label="Remember Me"
+              class="mt-2"
+            />
+          </div>
+          <!-- Password End -->
 
           <UButton type="submit" label="Sign In" block />
 

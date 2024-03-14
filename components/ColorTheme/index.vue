@@ -1,6 +1,6 @@
 <template>
   <UPopover :popper="{ arrow: true }" class="flex justify-center">
-    <Icon name="majesticons:color-swatch" class="text-xl text-primary" />
+    <Icon name="fluent:color-24-filled" class="text-xl text-primary" />
 
     <template #panel>
       <div class="p-4 grid grid-cols-5 gap-3">

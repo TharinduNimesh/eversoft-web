@@ -4,7 +4,10 @@ export default {
   darkMode: "class",
   theme: {
     extend: {
-      colors: {},
+      colors: {
+        "primary-bkg": "rgb(var(--primary-bkg) / <alpha-value>)",
+        "secondary-bkg": "rgb(var(--secondary-bkg) / <alpha-value>)",
+      },
     },
   },
   plugins: [],

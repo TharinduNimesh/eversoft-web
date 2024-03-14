@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .dark {
+    --primary-bkg: 9 9 10;
+    --secondary-bkg: 12 12 14;
+  }
+
+  .light {
+    --primary-bkg: 230 233 235;
+    --secondary-bkg: 240 240 240;
+  }
+}

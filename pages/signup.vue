@@ -37,7 +37,7 @@ function signUp() {
             <UPasswordInput v-model="form.password" />
           </UFormGroup>
 
-          <UButton type="submit" label="Sign Up" block />
+          <UButton to="/email-verify" label="Sign Up" block />
 
           <div class="w-full text-center">
             Already Have An Account

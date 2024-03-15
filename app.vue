@@ -11,7 +11,7 @@ function setColorTheme() {
 </script>
 
 <template>
-  <div>
+  <div class="bg-primary-bkg text-gray-700 dark:text-slate-200">
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>

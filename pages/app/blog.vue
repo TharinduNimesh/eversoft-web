@@ -13,7 +13,7 @@
 import sidebar from '~/components/app/sidebar.vue';
 
 export default {
-    name: 'DashboardPage',
+    name: 'BlogPage',
     components: {
         sidebar
     }

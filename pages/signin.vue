@@ -17,26 +17,16 @@ function signIn() {
     <!-- Container Start -->
     <UContainer class="grid place-items-center min-h-screen">
       <div
-        class="w-full flex flex-col lg:w-2/3 max-w-[450px] p-5 md:p-8 bg-secondary-bkg shadow dark:shadow-black rounded-lg"
-      >
+        class="w-full flex flex-col lg:w-2/3 max-w-[450px] p-5 md:p-8 bg-secondary-bkg shadow dark:shadow-black rounded-lg">
         <div class="w-full text-center px-5">
           <h1 class="text-xl lg:text-2xl font-bold uppercase">Sign In</h1>
           <UDivider class="my-5" />
         </div>
 
         <!-- Form Start -->
-        <UForm
-          :schema="LoginValidation"
-          :state="form"
-          @submit="signIn"
-          class="grid gap-7"
-        >
+        <UForm :schema="LoginValidation" :state="form" @submit="signIn" class="grid gap-7">
           <UFormGroup name="email" label="Email Address">
-            <UInput
-              v-model="form.email"
-              type="email"
-              placeholder="Enter Email Address"
-            />
+            <UInput v-model="form.email" type="email" placeholder="Enter Email Address" />
           </UFormGroup>
 
           <!-- Password Start -->
@@ -47,15 +37,11 @@ function signIn() {
               </template>
               <UPasswordInput v-model="form.password" />
             </UFormGroup>
-            <UCheckbox
-              v-model="form.remember_me"
-              label="Remember Me"
-              class="mt-2"
-            />
+            <UCheckbox v-model="form.remember_me" label="Remember Me" class="mt-2" />
           </div>
           <!-- Password End -->
 
-          <UButton type="submit" label="Sign In" block />
+          <UButton to="/app/dashboard" type="submit" label="Sign In" block />
 
           <div class="w-full text-center">
             Don't Have An Account

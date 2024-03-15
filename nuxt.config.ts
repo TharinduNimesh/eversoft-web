@@ -3,9 +3,8 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   ssr: false,
   modules: ["@nuxt/ui", "@pinia/nuxt"],
-  css: ["~/assets/index.css"],
   tailwindcss: {
-    cssPath: "~/assets/index.css",
+    cssPath: "~/assets/css/index.css",
     configPath: "./tailwind.config.ts",
   }
 });

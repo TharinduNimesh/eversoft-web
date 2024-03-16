@@ -24,7 +24,6 @@ watch(isDark, (value) => {
     <div class="flex gap-4 items-center">
       <ColorTheme />
       <UToggle
-        color="gray"
         v-model="isDark"
         on-icon="solar:moon-bold"
         off-icon="solar:sun-2-bold"

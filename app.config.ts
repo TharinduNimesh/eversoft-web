@@ -22,5 +22,14 @@ export default defineAppConfig({
         },
       },
     },
+    dropdown: {
+      background: "dark:bg-secondary-bkg",
+      item: {
+        base: "dark:hover:bg-primary-bkg/70"
+      }
+    },
+    popover: {
+      background: "dark:bg-secondary-bkg",
+    }
   },
 });

@@ -31,6 +31,7 @@ function takeAction() {
       class="w-full flex cursor-pointer"
       :class="{
         'bg-primary/10': isActive,
+        'hover:bg-gray-100 dark:hover:bg-gray-700/20': !isActive
       }"
       @click="takeAction"
     >

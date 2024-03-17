@@ -8,7 +8,7 @@ const sidebarStore = useSidebarStore();
       :is-open="sidebarStore.isOpen"
       @toggle-sidebar="sidebarStore.toggle"
     />
-    <div class="flex-1 flex h-screen flex-col justify-between p-5">
+    <div class="flex-1 flex h-screen flex-col justify-between p-5 overflow-hidden overflow-y-scroll">
       <div class="w-full flex flex-col gap-5">
         <!-- Header Start -->
         <AppHeader @toggle-sidebar="sidebarStore.toggle" />
@@ -20,7 +20,7 @@ const sidebarStore = useSidebarStore();
       </div>
 
       <!-- Footer Start -->
-      <footer class="w-full">
+      <footer class="w-full pt-5">
         <div
           class="flex flex-col justify-between items-center text-center md:flex-row md:text-left bg-secondary-bkg rounded-xl shadow dark:shadow-black p-6"
         >

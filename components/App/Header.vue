@@ -44,7 +44,7 @@ function toggleTheme() {
 
 <template>
   <div
-    class="w-full flex justify-between items-center bg-secondary-bkg rounded-xl shadow dark:shadow-black p-4"
+    class="w-full flex justify-between items-center dark:border dark:border-slate-700 bg-secondary-bkg rounded-xl shadow dark:shadow-black p-4"
   >
     <div class="flex items-center">
       <UButton

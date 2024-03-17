@@ -22,7 +22,7 @@ const sidebarStore = useSidebarStore();
       <!-- Footer Start -->
       <footer class="w-full pt-5">
         <div
-          class="flex flex-col justify-between items-center text-center md:flex-row md:text-left bg-secondary-bkg rounded-xl shadow dark:shadow-black p-6"
+          class="flex flex-col justify-between items-center text-center md:flex-row md:text-left dark:border dark:border-slate-700 bg-secondary-bkg rounded-xl shadow dark:shadow-black p-6"
         >
           <p class="text-sm text-gray-500">
             © 2022 <strong>Eversoft</strong>. All Rights Reserved.

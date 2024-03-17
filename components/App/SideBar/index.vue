@@ -43,7 +43,7 @@ const routes = [
   <div class="w-full md:w-[300px] absolute md:static flex h-screen p-4 md:pr-0 z-50" :class="{
     '-ml-[100%] md:ml-0 md:!w-[100px]': !sidebarStore.isOpen,
   }">
-    <div class="w-full bg-secondary-bkg rounded-xl shadow-lg dark:shadow-black">
+    <div class="w-full bg-secondary-bkg rounded-xl shadow-lg dark:border dark:border-slate-700 dark:shadow-black">
       <div class="w-full flex pt-5 px-5 items-center justify-between">
         <div class="flex gap-5">
           <Logo class="w-14" :class="{

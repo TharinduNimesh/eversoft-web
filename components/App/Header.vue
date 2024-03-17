@@ -77,7 +77,7 @@ function toggleTheme() {
         :ui="{ item: { disabled: 'cursor-text select-text' } }"
         :popper="{ placement: 'bottom-start' }"
       >
-        <UAvatar src="https://avatars.githubusercontent.com/u/739984?v=4" />
+        <UAvatar class="border" src="https://avatars.githubusercontent.com/u/739984?v=4" />
 
         <template #account="{ item }">
           <div class="text-left">

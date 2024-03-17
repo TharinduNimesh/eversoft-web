@@ -48,9 +48,7 @@ const people = [
 <template>
   <div>
     <NuxtLayout name="app">
-      <div
-        class="flex flex-col bg-secondary-bkg rounded-xl shadow dark:shadow-black p-8"
-      >
+      <div class="flex flex-col bg-secondary-bkg rounded-xl shadow dark:shadow-black p-8">
         <div class="border border-gray-300 dark:border-gray-700 rounded-lg">
           <UTable :rows="people" />
         </div>

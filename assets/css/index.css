@@ -13,3 +13,38 @@
     --secondary-bkg: 245 246 247;
   }
 }
+
+.markdown hr {
+  height: 1px;
+  margin: 1em 0;
+  padding: 0;
+  @apply border-t border-gray-300 dark:border-gray-700;
+}
+
+.markdown blockquote {
+  @apply p-4 my-2 pl-10 border-l-4 border-gray-400 dark:border-gray-600 text-gray-500 dark:text-slate-300 italic;
+}
+
+.markdown h1 {
+  @apply !text-3xl !font-bold;
+}
+
+.markdown h2 {
+  @apply !text-2xl !font-bold;
+}
+
+.markdown h3 {
+  @apply !text-xl !font-bold;
+}
+
+.markdown h4 {
+  @apply !text-lg !font-bold;
+}
+
+.markdown h5 {
+  @apply !font-bold;
+}
+
+.markdown h6 {
+  @apply !text-sm !font-bold;
+}

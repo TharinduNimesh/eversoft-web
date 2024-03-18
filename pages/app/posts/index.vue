@@ -8,6 +8,9 @@ const sort = ref({
 })
 
 const columns = [{
+  label: 'ID',
+  key: 'id',
+}, {
   label: 'Title',
   key: 'title',
   sortable: true

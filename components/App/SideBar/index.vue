@@ -40,8 +40,9 @@ const routes = [
 </script>
 
 <template>
-  <div class="w-full md:w-[300px] absolute md:static flex h-screen p-4 md:pr-0 z-50" :class="{
+  <div class="w-full md:w-[300px] absolute md:relative flex h-screen p-4 md:pr-0 z-50" :class="{
     '-ml-[100%] md:ml-0 md:!w-[100px]': !sidebarStore.isOpen,
+    'sidebar-open': sidebarStore.isOpen,
   }">
     <div class="w-full bg-secondary-bkg rounded-xl shadow-lg dark:border dark:border-slate-700 dark:shadow-black">
       <div class="w-full flex pt-5 px-5 items-center justify-between">
@@ -76,3 +77,26 @@ const routes = [
     </div>
   </div>
 </template>
+
+<style scoped>
+.sidebar-open {
+  transition: margin-left 0.3s ease;
+}
+
+.sidebar-closed {
+  transition: margin-left 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation: fadeIn 0.3s ease;
+}
+</style>

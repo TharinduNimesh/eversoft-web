@@ -6,10 +6,11 @@
           class="p-4 md:col-span-3 sm:col-span-3 xsm:col-span-1 dark:border dark:border-slate-700 bg-secondary-bkg rounded-xl shadow dark:shadow-black">
           <h1 class="text-lg mb-4">Add New Post</h1>
           <UInput color="gray" variant="outline" placeholder="Enter title here" />
-          <div class="flex flex-row gap-2 pt-4">
-            <h1 class="font-bold">Permalink: <span class="font-thin">http://www.example.com/114/</span></h1>
-            <UButton color="gray" variant="solid" size="2xs">Edit</UButton>
-            <UButton color="gray" variant="solid" size="2xs">View Post</UButton>
+          <div class="flex gap-2 pt-4">
+            <h1 class="font-bold">Permalink: <span class="font-thin">http://www.example.com/114/</span>
+              <UButton class="ml-2" color="gray" variant="solid" size="2xs">Edit</UButton>
+              <UButton class="ml-2" color="gray" variant="solid" size="2xs">View Post</UButton>
+            </h1>
           </div>
           <div class="my-4">
             <UButton color="gray" variant="solid" size="sm" icon="material-symbols:perm-media-rounded">Add Media
@@ -54,7 +55,7 @@
               <hr class="h-px my-4 bg-gray-200 border-0 dark:bg-gray-700">
               <div class="flex justify-between">
                 <UButton color="red" variant="solid" icon="i-heroicons-trash-20-solid"></UButton>
-                <UButton color="gray" variant="solid">Publish</UButton>
+                <UButton variant="solid">Publish</UButton>
               </div>
             </div>
           </div>

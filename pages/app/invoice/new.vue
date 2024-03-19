@@ -57,6 +57,7 @@ const date = ref(new Date());
           </div>
           <!-- Tab components -->
           <div class="dark:border dark:border-slate-700 rounded-xl p-4 mt-4">
+            <h1 class="mb-4">List Item</h1>
             <UTabs :items="items" class="w-full">
               <template #item="{ item }">
                 <UCard>
@@ -69,42 +70,39 @@ const date = ref(new Date());
                     </p>
                   </template>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div class="flex flex-wrap items-center gap-3">
-                        <h1 class="mb-1 ml-1">Qty</h1>
-                        <UInput class="w-full md:w-auto" color="gray" variant="outline" placeholder="Enter here" />
-                      </div>
-                      <div class="flex flex-wrap items-center gap-3">
-                        <h1 class="mb-1 ml-1">Item Title</h1>
-                        <UInput class="w-full md:w-auto" color="gray" variant="outline"
-                          placeholder="Enter title here" />
-                      </div>
-                      <div class="flex flex-wrap items-center gap-3">
-                        <h1 class="mb-1 ml-1">Adjust (%)</h1>
-                        <UInput class="w-full md:w-auto" color="gray" variant="outline" placeholder="0" />
-                      </div>
-                      <div class="flex flex-wrap items-center gap-3">
-                        <h1 class="mb-1 ml-1">Rate ($)</h1>
-                        <UInput class="w-full md:w-auto" color="gray" variant="outline" placeholder="0"
-                          v-model="rate" />
-                      </div>
-                      <div class="flex flex-wrap items-center gap-3">
-                        <h1 class="mb-1 ml-1">Amount ($)</h1>
-                        <UBadge class="h-10 w-auto text-center font-bold" size="md">
-                          $ {{ rate }}
-                        </UBadge>
-                      </div>
-                      <div class="flex flex-wrap items-center gap-3">
-                        <h1 class="mb-1 ml-1">Description</h1>
-                        <UTextarea class="w-full md:w-auto" size="lg" :rows="1" color="gray" variant="outline"
-                          placeholder="Description here" />
-                      </div>
-                      <div class="flex flex-wrap items-center gap-3">
-                        <h1 class="mb-1 ml-1">Taxable</h1>
-                        <UCheckbox class="w-full md:w-auto" color="gray" variant="outline" />
-                      </div>
+                  <div class="grid md:grid-cols-4 sm:grid-cols-1 gap-2">
+                    <div class="">
+                      <h1 class="mb-1 ml-1">Qty</h1>
+                      <UInput class="w-full md:w-auto" color="gray" variant="outline" placeholder="Enter here" />
                     </div>
-
+                    <div class="">
+                      <h1 class="mb-1 ml-1">Item Title</h1>
+                      <UInput class="w-full md:w-auto" color="gray" variant="outline" placeholder="Enter title here" />
+                    </div>
+                    <div class="">
+                      <h1 class="mb-1 ml-1">Adjust (%)</h1>
+                      <UInput class="w-full md:w-auto" color="gray" variant="outline" placeholder="0" />
+                    </div>
+                    <div class="">
+                      <h1 class="mb-1 ml-1">Rate ($)</h1>
+                      <UInput class="w-full md:w-auto" color="gray" variant="outline" placeholder="0" v-model="rate" />
+                    </div>
+                    <div class="">
+                      <h1 class="mb-1 ml-1">Description</h1>
+                      <UTextarea class="w-full md:w-auto" size="lg" :rows="1" color="gray" variant="outline"
+                        placeholder="Description here" />
+                    </div>
+                    <div class="">
+                      <h1 class="mb-1 ml-1">Taxable</h1>
+                      <UCheckbox class="w-full md:w-auto" color="gray" variant="outline" />
+                    </div>
+                    <div class="md:col-span-2 sm:col-span-1">
+                      <h1 class="mb-1 ml-1">Amount ($)</h1>
+                      <UBadge class="h-10 w-auto text-center font-bold" size="md">
+                        $ {{ rate }}
+                      </UBadge>
+                    </div>
+                  </div>
 
                   <template #footer>
                     <div class="flex flex-wrap justify-end gap-3 pt-4 ">

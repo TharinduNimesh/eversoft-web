@@ -13,6 +13,7 @@ import StarterKit from "@tiptap/starter-kit";
 import Heading from "@tiptap/extension-heading";
 import Code from "@tiptap/extension-code";
 import Image from "@tiptap/extension-image";
+import Highlight from '@tiptap/extension-highlight'
 
 const emit = defineEmits(["update:modelValue"]);
 
@@ -33,6 +34,7 @@ const editor = useEditor({
   extensions: [
     StarterKit,
     Underline,
+    Highlight,
     TextAlign.configure({
       types: ["heading", "paragraph"],
     }),
@@ -142,6 +144,12 @@ function addImage() {
         color="black"
         :variant="editor.isActive('underline') ? 'solid' : 'ghost'"
         icon="ic:twotone-format-underlined"
+      />
+      <UButton
+        @click="editor.chain().focus().toggleHighlight().run()"
+        color="black"
+        :variant="editor.isActive('highlight') ? 'solid' : 'ghost'"
+        icon="clarity:highlighter-line"
       />
       <UPopover mode="hover" :popper="{ arrow: true }">
         <UButton

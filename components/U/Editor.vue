@@ -12,6 +12,7 @@ import TextAlign from "@tiptap/extension-text-align";
 import StarterKit from "@tiptap/starter-kit";
 import Heading from "@tiptap/extension-heading";
 import Code from "@tiptap/extension-code";
+import Image from "@tiptap/extension-image";
 
 const emit = defineEmits(["update:modelValue"]);
 
@@ -41,6 +42,12 @@ const editor = useEditor({
     Code.configure({
       HTMLAttributes: {
         class: "language-javascript",
+      },
+    }),
+    Image.configure({
+      inline: true,
+      HTMLAttributes: {
+        class: "w-full",
       },
     }),
   ],
@@ -95,13 +102,21 @@ const headingIcon = computed(() => {
     isHeading: false,
   };
 });
+
+function addImage() {
+  const url = window.prompt("URL");
+
+  if (url) {
+    editor.value.chain().focus().setImage({ src: url }).run();
+  }
+}
 </script>
 
 <template>
   <div class="w-full markdown flex flex-col">
     <div
       v-if="editor"
-      class="px-5 py-3 flex gap-3 border border-b-0 border-slate-300 dark:border-gray-700 bg-gray-50 dark:bg-[#2b2a33] rounded-t-lg"
+      class="px-5 py-3 flex gap-3 flex-wrap border border-b-0 border-slate-300 dark:border-gray-700 bg-gray-50 dark:bg-[#2b2a33] rounded-t-lg"
     >
       <UButton
         @click="editor.chain().focus().toggleBold().run()"
@@ -232,6 +247,13 @@ const headingIcon = computed(() => {
         />
       </div>
       <!-- Text Alignment End -->
+
+      <UButton
+        @click="addImage"
+        color="black"
+        variant="ghost"
+        icon="material-symbols:imagesmode-outline-rounded"
+      />
 
       <UButton
         class="disabled:text-gray-200 dark:disabled:text-gray-600"

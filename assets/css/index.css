@@ -53,3 +53,11 @@
 .markdown mark {
   @apply bg-primary/40 dark:bg-primary/30;
 }
+
+.markdown ol {
+  @apply list-decimal px-5;
+}
+
+.markdown ul {
+  @apply list-disc px-5;
+}

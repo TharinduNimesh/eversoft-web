@@ -16,6 +16,7 @@ import Image from "@tiptap/extension-image";
 import Highlight from "@tiptap/extension-highlight";
 import Color from "@tiptap/extension-color";
 import TextStyle from "@tiptap/extension-text-style";
+import ListItem from "@tiptap/extension-list-item";
 
 const emit = defineEmits(["update:modelValue"]);
 const textColor = ref("#000000");
@@ -40,6 +41,7 @@ const editor = useEditor({
     Underline,
     Highlight,
     TextStyle,
+    ListItem,
     TextAlign.configure({
       types: ["heading", "paragraph"],
     }),
@@ -243,6 +245,28 @@ function chooseColor() {
         color="black"
         :variant="editor.isActive('blockquote') ? 'solid' : 'ghost'"
         icon="material-symbols:format-quote"
+      />
+
+      <UButton
+        @click="editor.chain().focus().toggleBulletList().run()"
+        color="black"
+        :variant="editor.isActive('bulletList') ? 'solid' : 'ghost'"
+        icon="ic:round-format-list-bulleted"
+      />
+
+      <UButton
+        @click="editor.chain().focus().toggleOrderedList().run()"
+        color="black"
+        :variant="editor.isActive('orderedList') ? 'solid' : 'ghost'"
+        icon="ic:round-format-list-numbered"
+      />
+
+      <UButton
+        @click="editor.chain().focus().sinkListItem('listItem').run()"
+        color="black"
+        :variant="editor.isActive('listItem') ? 'solid' : 'ghost'"
+        icon="mdi:menu-close"
+        :disabled="!editor.can().sinkListItem('listItem')"
       />
 
       <!-- Text Alignment Start -->

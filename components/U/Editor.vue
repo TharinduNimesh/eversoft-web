@@ -13,9 +13,13 @@ import StarterKit from "@tiptap/starter-kit";
 import Heading from "@tiptap/extension-heading";
 import Code from "@tiptap/extension-code";
 import Image from "@tiptap/extension-image";
-import Highlight from '@tiptap/extension-highlight'
+import Highlight from "@tiptap/extension-highlight";
+import Color from "@tiptap/extension-color";
+import TextStyle from "@tiptap/extension-text-style";
 
 const emit = defineEmits(["update:modelValue"]);
+const textColor = ref("#000000");
+const colorPicker = ref();
 
 const props = defineProps({
   modelValue: {
@@ -35,6 +39,7 @@ const editor = useEditor({
     StarterKit,
     Underline,
     Highlight,
+    TextStyle,
     TextAlign.configure({
       types: ["heading", "paragraph"],
     }),
@@ -51,6 +56,9 @@ const editor = useEditor({
       HTMLAttributes: {
         class: "w-full",
       },
+    }),
+    Color.configure({
+      types: ["textStyle"],
     }),
   ],
 });
@@ -112,6 +120,10 @@ function addImage() {
     editor.value.chain().focus().setImage({ src: url }).run();
   }
 }
+
+function chooseColor() {
+  colorPicker.value.click();
+}
 </script>
 
 <template>
@@ -144,6 +156,12 @@ function addImage() {
         color="black"
         :variant="editor.isActive('underline') ? 'solid' : 'ghost'"
         icon="ic:twotone-format-underlined"
+      />
+      <UButton
+        @click="chooseColor"
+        color="black"
+        :variant="editor.isActive('textStyle') ? 'solid' : 'ghost'"
+        icon="ic:round-format-color-text"
       />
       <UButton
         @click="editor.chain().focus().toggleHighlight().run()"
@@ -278,6 +296,13 @@ function addImage() {
         icon="ic:round-redo"
         color="black"
         variant="ghost"
+      />
+      <input
+        type="color"
+        hidden
+        ref="colorPicker"
+        v-model="textColor"
+        @change="editor.chain().focus().setColor($event.target.value).run()"
       />
     </div>
     <EditorContent :editor="editor" />

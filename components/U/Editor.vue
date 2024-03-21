@@ -13,8 +13,14 @@ import StarterKit from "@tiptap/starter-kit";
 import Heading from "@tiptap/extension-heading";
 import Code from "@tiptap/extension-code";
 import Image from "@tiptap/extension-image";
+import Highlight from "@tiptap/extension-highlight";
+import Color from "@tiptap/extension-color";
+import TextStyle from "@tiptap/extension-text-style";
+import ListItem from "@tiptap/extension-list-item";
 
 const emit = defineEmits(["update:modelValue"]);
+const textColor = ref("#000000");
+const colorPicker = ref();
 
 const props = defineProps({
   modelValue: {
@@ -33,6 +39,9 @@ const editor = useEditor({
   extensions: [
     StarterKit,
     Underline,
+    Highlight,
+    TextStyle,
+    ListItem,
     TextAlign.configure({
       types: ["heading", "paragraph"],
     }),
@@ -49,6 +58,9 @@ const editor = useEditor({
       HTMLAttributes: {
         class: "w-full",
       },
+    }),
+    Color.configure({
+      types: ["textStyle"],
     }),
   ],
 });
@@ -110,6 +122,10 @@ function addImage() {
     editor.value.chain().focus().setImage({ src: url }).run();
   }
 }
+
+function chooseColor() {
+  colorPicker.value.click();
+}
 </script>
 
 <template>
@@ -142,6 +158,18 @@ function addImage() {
         color="black"
         :variant="editor.isActive('underline') ? 'solid' : 'ghost'"
         icon="ic:twotone-format-underlined"
+      />
+      <UButton
+        @click="chooseColor"
+        color="black"
+        :variant="editor.isActive('textStyle') ? 'solid' : 'ghost'"
+        icon="ic:round-format-color-text"
+      />
+      <UButton
+        @click="editor.chain().focus().toggleHighlight().run()"
+        color="black"
+        :variant="editor.isActive('highlight') ? 'solid' : 'ghost'"
+        icon="clarity:highlighter-line"
       />
       <UPopover mode="hover" :popper="{ arrow: true }">
         <UButton
@@ -219,6 +247,28 @@ function addImage() {
         icon="material-symbols:format-quote"
       />
 
+      <UButton
+        @click="editor.chain().focus().toggleBulletList().run()"
+        color="black"
+        :variant="editor.isActive('bulletList') ? 'solid' : 'ghost'"
+        icon="ic:round-format-list-bulleted"
+      />
+
+      <UButton
+        @click="editor.chain().focus().toggleOrderedList().run()"
+        color="black"
+        :variant="editor.isActive('orderedList') ? 'solid' : 'ghost'"
+        icon="ic:round-format-list-numbered"
+      />
+
+      <UButton
+        @click="editor.chain().focus().sinkListItem('listItem').run()"
+        color="black"
+        :variant="editor.isActive('listItem') ? 'solid' : 'ghost'"
+        icon="mdi:menu-close"
+        :disabled="!editor.can().sinkListItem('listItem')"
+      />
+
       <!-- Text Alignment Start -->
       <div>
         <UButton
@@ -270,6 +320,13 @@ function addImage() {
         icon="ic:round-redo"
         color="black"
         variant="ghost"
+      />
+      <input
+        type="color"
+        hidden
+        ref="colorPicker"
+        v-model="textColor"
+        @change="editor.chain().focus().setColor($event.target.value).run()"
       />
     </div>
     <EditorContent :editor="editor" />

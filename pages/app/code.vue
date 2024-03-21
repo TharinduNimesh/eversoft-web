@@ -1,9 +1,6 @@
 <script setup>
 import hljs from "highlight.js";
-import javascript from "highlight.js/lib/languages/javascript";
 
-// Then register the languages you need
-hljs.registerLanguage("javascript", javascript);
 hljs.highlightAll();
 </script>
 

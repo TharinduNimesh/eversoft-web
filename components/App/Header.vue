@@ -58,14 +58,14 @@ function toggleTheme() {
       <ColorTheme />
       <div class="text-2xl" @click="toggleTheme()">
         <UButton
-          v-if="$colorMode.preference === 'light'"
+          v-show="$colorMode.preference === 'light'"
           icon="ic:round-light-mode"
           class="rounded-full"
           variant="ghost"
           color="gray"
         />
         <UButton
-          v-else
+          v-show="$colorMode.preference === 'dark'"
           icon="ic:round-dark-mode"
           class="rounded-full"
           variant="ghost"

@@ -4,16 +4,18 @@ const isDark = ref(false);
 
 // set toggle icon based on color theme
 onMounted(() => {
-  isDark.value = color.preference === "dark";
+  isDark.value = color.value === "dark";
 });
-watch(isDark, (value) => {
-  color.preference = value ? "dark" : "light";
-});
+
+function toggleTheme() {
+  color.preference = color.preference === "light" ? "dark" : "light";
+  isDark.value = !isDark.value;
+}
 </script>
 
 <template>
   <header
-    class="w-full flex items-center justify-between px-5 py-3 shadow dark:shadow-black"
+    class="fixed w-full flex items-center justify-between px-5 py-3 shadow dark:shadow-black"
   >
     <div class="flex items-center gap-3">
       <Logo class="w-10" />
@@ -23,11 +25,22 @@ watch(isDark, (value) => {
     </div>
     <div class="flex gap-4 items-center">
       <ColorTheme />
-      <UToggle
-        v-model="isDark"
-        on-icon="solar:moon-bold"
-        off-icon="solar:sun-2-bold"
-      />
+      <div @click="toggleTheme">
+        <UButton
+          v-show="isDark"
+          icon="ic:round-dark-mode"
+          class="rounded-full"
+          variant="ghost"
+          color="gray"
+        />
+        <UButton
+          v-show="!isDark"
+          icon="ic:round-light-mode"
+          class="rounded-full"
+          variant="ghost"
+          color="gray"
+        />
+      </div>
       <UButton color="gray" label="Sign Up" to="/signup" />
       <UButton label="Sign In" to="/signin" />
     </div>

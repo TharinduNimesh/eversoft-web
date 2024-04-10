@@ -8,6 +8,10 @@ export default {
         "primary-bkg": "rgb(var(--primary-bkg) / <alpha-value>)",
         "secondary-bkg": "rgb(var(--secondary-bkg) / <alpha-value>)",
       },
+      fontFamily: {
+        recoleta: ["Recoleta"],
+        roboto: ["Roboto", "sans-serif"],
+      }
     },
   },
   plugins: [require("@tailwindcss/typography")],

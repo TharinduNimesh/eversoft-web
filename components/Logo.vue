@@ -73,7 +73,7 @@ const colors = {
 };
 
 const color = computed(() => {
-    return colors[config.ui.primary || "blue"][colorMode.preference];
+    return colors[config.ui.primary || "blue"][colorMode.value];
 });
 </script>
 

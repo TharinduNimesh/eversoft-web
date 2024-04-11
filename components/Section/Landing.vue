@@ -1,12 +1,14 @@
 <template>
-  <div class="min-h-screen flex flex-col justify-center items-center gap-5">
+  <section
+    class="min-h-screen flex flex-col justify-center items-center gap-5 bg-[url(/img/background.png)] bg-cover bg-left-top"
+  >
     <div
       class="relative w-full md:w-2/3 flex flex-col items-center text-center gap-3"
     >
       <!-- Floating Images Start -->
       <img
         :src="`/img/elements/shape_26-${$colorMode.value}.svg`"
-        class="absolute animate-float w-[80px] top-0 left-5 md:w-[100px] md:-top-[60px] md:-left-[60px] lg:w-[120px] lg:-top-[80px] lg:-left-[120px] xl:w-[140px] xl:-top-[100px] xl:-left-[130px]"
+        class="absolute w-[80px] top-0 left-5 md:w-[100px] md:-top-[60px] md:-left-[60px] lg:w-[120px] lg:-top-[80px] lg:-left-[120px] xl:w-[140px] xl:-top-[100px] xl:-left-[130px]"
       />
       <img
         :src="`/img/elements/shape_27-${$colorMode.value}.svg`"
@@ -44,6 +46,7 @@
       />
       <div class="flex items-center gap-3 cursor-pointer learn-more">
         <UButton
+          color="black"
           size="xl"
           icon="solar:alt-arrow-down-bold"
           variant="outline"
@@ -56,7 +59,7 @@
       </div>
     </div>
     <!-- Quick Action Buttons End -->
-  </div>
+  </section>
 </template>
 
 <style scoped>
@@ -80,7 +83,7 @@
 }
 
 .learn-more:hover .btn-learn-more {
-  @apply bg-primary text-white dark:text-black;
+  @apply bg-black dark:bg-white text-white dark:text-black;
 }
 
 @media (min-width: 768px) {

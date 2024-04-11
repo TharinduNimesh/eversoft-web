@@ -1,6 +1,10 @@
 <script setup>
+import lottie from "lottie-web";
+import { defineElement } from "@lordicon/element";
+
 onBeforeMount(() => {
   setColorTheme();
+  defineElement(lottie.loadAnimation);
 });
 
 // set user prefer color theme, or default blue

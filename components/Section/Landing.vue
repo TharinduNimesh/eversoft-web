@@ -1,3 +1,22 @@
+<script setup>
+const mouseOnLearnMore = ref(false);
+const color = useColorMode();
+
+function changeColor() {
+  if (mouseOnLearnMore.value) {
+    return;
+  }
+  mouseOnLearnMore.value = true;
+}
+
+const btnColor = computed(() => {
+  if (color.value == "light") {
+    return mouseOnLearnMore.value ? '#ffffff' : '#000000';
+  }
+  return mouseOnLearnMore.value ? '#000000' : '#ffffff';
+});
+</script>
+
 <template>
   <section
     class="min-h-screen flex flex-col justify-center items-center gap-5 bg-[url(/img/background.png)] bg-cover bg-left-top"
@@ -8,7 +27,7 @@
       <!-- Floating Images Start -->
       <img
         :src="`/img/elements/shape_26-${$colorMode.value}.svg`"
-        class="absolute w-[80px] top-0 left-5 md:w-[100px] md:-top-[60px] md:-left-[60px] lg:w-[120px] lg:-top-[80px] lg:-left-[120px] xl:w-[140px] xl:-top-[100px] xl:-left-[130px]"
+        class="absolute animate-float delay-300 w-[80px] top-0 left-5 md:w-[100px] md:-top-[60px] md:-left-[60px] lg:w-[120px] lg:-top-[80px] lg:-left-[120px] xl:w-[140px] xl:-top-[100px] xl:-left-[130px]"
       />
       <img
         :src="`/img/elements/shape_27-${$colorMode.value}.svg`"
@@ -38,25 +57,41 @@
     <div
       class="flex flex-col sm:flex-row justify-center items-center gap-5 mt-5"
     >
-      <UButton
-        size="xl"
-        label="Contact Us"
-        icon="solar:phone-rounded-bold"
-        class="rounded-full px-8 py-4"
-      />
-      <div class="flex items-center gap-3 cursor-pointer learn-more">
-        <UButton
-          color="black"
-          size="xl"
-          icon="solar:alt-arrow-down-bold"
-          variant="outline"
-          class="rounded-full px-4 py-4 btn-learn-more"
+      <UButton size="xl" class="rounded-full px-8 py-4" id="btn-contact">
+        <lord-icon
+          :colors="`primary:${
+            $colorMode.value == 'dark' ? '#000000' : '#ffffff'
+          }`"
+          src="/animations/call-phone.json"
+          trigger="hover"
+          target="#btn-contact"
         />
+        Contact Us
+      </UButton>
+
+      <!-- Learn More Button Start -->
+      <div
+        class="flex items-center gap-3 cursor-pointer learn-more"
+        @mouseover="changeColor"
+        @mouseleave="mouseOnLearnMore = false"
+      >
+        <button
+          class="btn-learn-more w-[60px] h-[60px] rounded-full flex justify-center items-center border border-black dark:border-white"
+        >
+          <lord-icon
+            src="/animations/trending-flat.json"
+            :colors="`primary:${btnColor}`"
+            trigger="hover"
+            target=".learn-more"
+            class="rotate-90"
+          />
+        </button>
         <div class="flex justify-center flex-col">
           <span class="text-primary font-bold">Scroll</span>
           <span class="text-sm font-semibold">Learn more</span>
         </div>
       </div>
+      <!-- Learn More Button End -->
     </div>
     <!-- Quick Action Buttons End -->
   </section>
@@ -83,7 +118,7 @@
 }
 
 .learn-more:hover .btn-learn-more {
-  @apply bg-black dark:bg-white text-white dark:text-black;
+  @apply bg-black dark:bg-white;
 }
 
 @media (min-width: 768px) {

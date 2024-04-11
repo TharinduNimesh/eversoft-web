@@ -32,14 +32,14 @@ function toggleTheme() {
           <UButton
             v-show="isDark"
             icon="ic:round-dark-mode"
-            class="rounded-full"
+            class="rounded-full hover:rotate-[360deg] transition-transform duration-300"
             variant="ghost"
             color="gray"
           />
           <UButton
             v-show="!isDark"
             icon="ic:round-light-mode"
-            class="rounded-full"
+            class="rounded-full hover:rotate-[360deg] transition-transform duration-300"
             variant="ghost"
             color="gray"
           />

@@ -6,5 +6,14 @@ export default defineNuxtConfig({
   tailwindcss: {
     cssPath: "~/assets/css/index.css",
     configPath: "./tailwind.config.ts",
-  }
+  },
+  vite: {
+    vue: {
+      template: {
+        compilerOptions: {
+          isCustomElement: (tag) => ['lord-icon'].includes(tag),
+        },
+      },
+    }
+  }  
 });

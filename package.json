@@ -10,6 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@lordicon/element": "^1.6.0",
     "@nuxt/ui": "^2.14.2",
     "@tailwindcss/typography": "^0.5.10",
     "@tiptap/extension-code": "^2.2.4",
@@ -27,6 +28,7 @@
     "chart.js": "^4.4.2",
     "date-fns": "^3.6.0",
     "highlight.js": "^11.9.0",
+    "lottie-web": "^5.12.2",
     "nuxt": "^3.11.2",
     "pinia": "^2.1.7",
     "v-calendar": "^3.1.2",

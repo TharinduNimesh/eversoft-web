@@ -2,7 +2,7 @@
 const config = useAppConfig();
 onMounted(() => {
   config.ui.primary = "blue";
-})
+});
 </script>
 
 <template>

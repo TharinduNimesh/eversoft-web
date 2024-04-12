@@ -27,6 +27,7 @@
     "@tiptap/vue-3": "^2.2.4",
     "chart.js": "^4.4.2",
     "date-fns": "^3.6.0",
+    "gsap": "^3.12.5",
     "highlight.js": "^11.9.0",
     "lottie-web": "^5.12.2",
     "nuxt": "^3.11.2",

@@ -7,6 +7,10 @@ onMounted(() => {
 
 <template>
   <div class="w-full flex flex-col bg-secondary-bkg">
+    <!-- Intro Start -->
+    <Intro />
+    <!-- Intro End -->
+
     <!-- Header start -->
     <Header />
     <!-- Header end -->

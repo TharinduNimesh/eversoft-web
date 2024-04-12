@@ -19,7 +19,7 @@ const btnColor = computed(() => {
 
 <template>
   <section
-    class="min-h-screen flex flex-col justify-center items-center gap-5 bg-[url(/img/background.png)] bg-cover bg-left-top"
+    class="min-h-screen flex flex-col justify-center items-center gap-5 bg-[url(/img/background.webp)] bg-cover bg-left-top"
   >
     <div
       class="relative w-full md:w-2/3 flex flex-col items-center text-center gap-3"

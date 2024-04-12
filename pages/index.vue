@@ -13,6 +13,13 @@ useHead({
         "Eversoft, Eversoft IT Solutions, Sri Lanka, software development, web development, mobile app development, desktop app development, technology solutions, experienced developers, innovative solutions, software company in sri lanka, software development company in sri lanka, software development company, software company, software development, software development company in colombo, software development company in kandy, software development company in galle, software development company in jaffna, software development company in negombo, software development company in kurunegala, software development company in matara, software development company in ratnapura, software development company in badulla, software development company in anuradhapura, software development company in trincomalee, software",
     },
   ],
+  link: [
+    {
+      rel: "icon",
+      type: "image/x-icon",
+      href: "/favicon.ico",
+    },
+  ],
 });
 </script>
 

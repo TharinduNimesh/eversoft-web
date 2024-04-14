@@ -20,5 +20,7 @@ onMounted(() => {
       <slot />
     </main>
     <!-- Main End -->
+
+    <Footer />
   </div>
 </template>

@@ -21,7 +21,11 @@ function toggleTheme() {
       class="bg-secondary-bkg/50 w-full flex items-center justify-between px-5 py-3 shadow dark:shadow-black rounded-lg backdrop-blur-md"
     >
       <div class="flex items-center gap-3">
-        <Logo class="w-10" />
+        <img
+          src="/img/logo.png"
+          alt="Eversoft Logo"
+          class="w-[40px]"
+        />
         <h1 class="text-2xl font-bold p-0 m-0">
           Eversoft <span class="text-primary">.</span>
         </h1>

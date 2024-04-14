@@ -147,7 +147,7 @@ const email = ref("");
               v-for="page in pages"
               :key="page.path"
               :to="page.path"
-              class="flex gap-2 mt-1 items-center text-gray-600 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 hover:translate-x-1 cursor-pointer duration-300"
+              class="flex gap-2 mt-1 items-center text-gray-600 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 hover:translate-x-1 cursor-pointer transition-transform duration-300"
             >
               <Icon name="ic:baseline-keyboard-arrow-right" />
               <span>{{ page.name }} Page</span>
@@ -194,7 +194,7 @@ const email = ref("");
               v-for="topic in popular"
               :key="topic.path"
               :to="topic.path"
-              class="flex gap-2 mt-1 items-center text-gray-600 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 hover:translate-x-1 cursor-pointer duration-300"
+              class="flex gap-2 mt-1 items-center text-gray-600 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 hover:translate-x-1 cursor-pointer transition-transform duration-300"
             >
               <Icon name="ic:baseline-keyboard-arrow-right" />
               <span>{{ topic.name }}</span>
@@ -209,7 +209,7 @@ const email = ref("");
                 v-for="page in pages"
                 :key="page.path"
                 :to="page.path"
-                class="flex gap-2 mt-1 items-center text-gray-600 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 hover:translate-x-1 cursor-pointer duration-300"
+                class="flex gap-2 mt-1 items-center text-gray-600 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 hover:translate-x-1 cursor-pointer transition-transform duration-300"
               >
                 <Icon name="ic:baseline-keyboard-arrow-right" />
                 <span>{{ page.name }} Page</span>
@@ -223,7 +223,7 @@ const email = ref("");
                 v-for="topic in popular"
                 :key="topic.path"
                 :to="topic.path"
-                class="flex gap-2 mt-1 items-center text-gray-600 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 hover:translate-x-1 cursor-pointer duration-300"
+                class="flex gap-2 mt-1 items-center text-gray-600 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 hover:translate-x-1 cursor-pointer transition-transform duration-300"
               >
                 <Icon name="ic:baseline-keyboard-arrow-right" />
                 <span>{{ topic.name }}</span>

@@ -11,16 +11,17 @@ function changeColor() {
 
 const btnColor = computed(() => {
   if (color.value == "light") {
-    return mouseOnLearnMore.value ? '#ffffff' : '#000000';
+    return mouseOnLearnMore.value ? "#ffffff" : "#000000";
   }
-  return mouseOnLearnMore.value ? '#000000' : '#ffffff';
+  return mouseOnLearnMore.value ? "#000000" : "#ffffff";
 });
 </script>
 
 <template>
   <section
-    class="min-h-screen flex flex-col justify-center items-center gap-5 bg-[url(/img/background.webp)] bg-cover bg-left-top"
-  >
+    class="relative min-h-screen flex flex-col justify-center items-center gap-5 bg-[url(/img/background.webp)] bg-cover bg-left-top"
+    >
+    <div class="absolute w-full h-full z-[9]"></div>
     <div
       class="relative w-full md:w-2/3 flex flex-col items-center text-center gap-3"
     >
@@ -37,7 +38,7 @@ const btnColor = computed(() => {
 
       <!-- Slogan Start -->
       <h1
-        class="text-4xl lg:text-5xl xl:text-6xl font-recoleta"
+        class="text-4xl lg:text-5xl xl:text-6xl font-recoleta z-10"
         :style="`--underline-img: url('/img/elements/underline-${$colorMode.value}.svg');`"
       >
         <span class="custom-underline">Transform</span> Ideas into
@@ -47,7 +48,7 @@ const btnColor = computed(() => {
       <!-- Slogan End -->
 
       <span
-        class="text-2xl font-roboto font-[400] text-gray-500 dark:text-gray-400"
+        class="text-2xl font-roboto font-[400] text-gray-500 dark:text-gray-400 z-10"
       >
         We are team of talented Software Engineers
       </span>
@@ -55,7 +56,7 @@ const btnColor = computed(() => {
 
     <!-- Quick Action Buttons Start -->
     <div
-      class="flex flex-col sm:flex-row justify-center items-center gap-5 mt-5"
+      class="flex flex-col sm:flex-row justify-center items-center gap-5 mt-5 z-10"
     >
       <UButton size="xl" class="rounded-full px-8 py-4" id="btn-contact">
         <lord-icon

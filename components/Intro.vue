@@ -84,7 +84,7 @@ function toggleGlitchText() {
       id="logo-box"
       ref="logoBox"
     >
-      <div class="flex items-center gap-3">
+      <div class="flex items-center gap-3 uppercase">
         <img
           src="/public/img/logo.png"
           class="w-[60px] lg:w-[75px] dark:grayscale"

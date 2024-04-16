@@ -26,7 +26,7 @@ function toggleTheme() {
           alt="Eversoft Logo"
           class="w-[40px]"
         />
-        <h1 class="text-2xl font-bold p-0 m-0">
+        <h1 class="text-2xl font-bold p-0 m-0 uppercase">
           Eversoft <span class="text-primary">.</span>
         </h1>
       </div>

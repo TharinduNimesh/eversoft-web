@@ -13,12 +13,12 @@ const pages = [
     path: "/teams",
   },
   {
-    name: "Customer Support",
-    path: "/customer-support",
-  },
-  {
     name: "FAQ",
     path: "/faq",
+  },
+  {
+    name: "Support",
+    path: "/customer-support",
   },
   {
     name: "Sign Up",
@@ -110,7 +110,7 @@ const email = ref("");
           class="text-2xl lg:text-3xl font-bold text-center text-gray-700 dark:text-gray-300 uppercase"
         >
           Subscribe to our
-          <span class="text-gradient from-blue-500 via-green-500 to-violet-600"
+          <span class="highlight bg-primary/40 dark:bg-primary/30"
             >newsletter</span
           >
         </h2>

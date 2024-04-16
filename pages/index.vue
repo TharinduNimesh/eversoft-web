@@ -24,10 +24,13 @@ useHead({
 </script>
 
 <template>
-  <div>
+  <div
+    class="w-full h-full bg-[url(/img/background-small.webp)] sm:bg-[url(/img/background.webp)] bg-secondary-bkg bg-contain bg-no-repeat bg-left-top"
+  >
     <NuxtLayout name="home">
       <!-- Sections Start -->
       <SectionLanding />
+      <SectionAboutUs />
       <!-- Sections End -->
     </NuxtLayout>
   </div>

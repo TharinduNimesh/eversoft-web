@@ -14,18 +14,12 @@ function toggleTheme() {
 </script>
 
 <template>
-  <header
-    class="fixed top-0 left-0 w-full px-5 py-3 z-[999]"
-  >
+  <header class="fixed top-0 left-0 w-full px-5 py-3 z-[999]">
     <div
       class="bg-secondary-bkg/50 w-full flex items-center justify-between px-5 py-3 shadow dark:shadow-black rounded-lg backdrop-blur-md"
     >
       <div class="flex items-center gap-3">
-        <img
-          src="/img/logo.png"
-          alt="Eversoft Logo"
-          class="w-[40px]"
-        />
+        <img src="/img/logo.png" alt="Eversoft Logo" class="w-[40px]" />
         <h1 class="text-2xl font-bold p-0 m-0 uppercase">
           Eversoft <span class="text-primary">.</span>
         </h1>
@@ -48,8 +42,10 @@ function toggleTheme() {
             color="gray"
           />
         </div>
-        <UButton color="gray" label="Sign Up" to="/signup" />
-        <UButton label="Sign In" to="/signin" />
+        <div class="hidden sm:flex gap-3">
+          <UButton color="gray" label="Sign Up" to="/signup" />
+          <UButton label="Sign In" to="/signin" />
+        </div>
       </div>
     </div>
   </header>

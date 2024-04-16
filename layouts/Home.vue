@@ -6,7 +6,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="w-full flex flex-col bg-secondary-bkg">
+  <div class="w-full flex flex-col">
     <!-- Intro Start -->
     <Intro />
     <!-- Intro End -->

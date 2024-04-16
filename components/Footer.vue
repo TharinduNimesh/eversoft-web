@@ -179,10 +179,10 @@ const email = ref("");
             </div>
           </div>
           <p class="text-gray-600 dark:text-gray-400 mt-4">
-            we are on a mission to revolutionize the real world through
-            cutting-edge technology. With a passion for innovation and two years
-            of experience, we specialize in developing dynamic websites and
-            applications that drive businesses forward.
+            Transform the real world with technology for enhanced connectivity,
+            efficiency, and progress. Envision a future where businesses thrive,
+            users enjoy seamless digital interactions, and technology empowers
+            progress.
           </p>
         </div>
         <div

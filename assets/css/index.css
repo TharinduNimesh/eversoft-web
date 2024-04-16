@@ -71,7 +71,13 @@
 
 /* Custom classes */
 .animate-float {
-  animation: float 3s infinite;
+  animation: float 5s infinite;
+}
+
+.animate-float-reverse {
+  animation: float 5s infinite;
+  animation-direction: reverse;
+  animation-delay: 2.5s
 }
 
 .highlight {

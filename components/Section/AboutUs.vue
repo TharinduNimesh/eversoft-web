@@ -1,9 +1,13 @@
 <template>
-  <section class="flex justify-center">
+  <section class="relative flex justify-center">
+    <img
+      class="absolute -bottom-5 left-0 opacity-30 hidden md:flex w-[200px] z-0"
+      :src="`/img/elements/dotset-${$colorMode.value}.png`"
+    />
     <div class="container grid grid-cols-2 px-4 py-16 lg:px-8 gap-16 lg:gap-5">
       <!-- Content Start -->
       <div
-        class="col-span-full lg:col-span-1 flex flex-col gap-3 justify-center order-2 lg:order-1"
+        class="col-span-full lg:col-span-1 flex flex-col gap-3 justify-center order-2 lg:order-1 z-10"
       >
         <span class="text-xl uppercase text-gray-400 dark:text-gray-500"
           >Bring your business to next level</span

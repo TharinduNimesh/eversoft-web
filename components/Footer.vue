@@ -100,7 +100,7 @@ const email = ref("");
   <!-- Footer Start -->
   <footer class="flex flex-col p-5 mt-[100px]">
     <div
-      class="relative flex flex-col pt-[200px] lg:pt-[150px] w-full rounded-xl bg-secondary-bkg p-5 border border-primary/30 bg-cover md:bg-contain bg-no-repeat bg-right-bottom bg-[url(/img/cover.png)]"
+      class="relative flex flex-col pt-[200px] lg:pt-[150px] w-full rounded-xl bg-secondary-bkg p-5 border border-primary/30 bg-contain bg-no-repeat bg-right-bottom bg-[url(/img/cover.png)]"
     >
       <!-- Newsletter Start -->
       <div

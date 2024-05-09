@@ -35,29 +35,33 @@
       >
         <div class="relative w-full lg:w-2/3 flex justify-center items-center">
           <!-- Technologies Start -->
-          <div
-            class="absolute -top-10 left-0 animate-float grid place-items-center p-3 w-20 h-20 rounded-lg bg-slate-200/40 dark:bg-gray-950/50 shadow-lg dark:shadow-black"
+          <a
+            class="absolute -top-10 left-0 cursor-pointer hover:pause hover:opacity-100 animate-float grid place-items-center p-3 w-20 h-20 rounded-lg bg-slate-200/40 dark:bg-gray-950/50 shadow-lg dark:shadow-black"
+            href="https://nuxt.com/"
           >
             <img src="/img/technologies/nuxt.svg" alt="Nuxt JS" />
-          </div>
+          </a>
 
-          <div
-            class="absolute top-10 right-0 md:-right-5 animate-float-reverse grid place-items-center p-3 w-20 h-20 rounded-lg bg-slate-200/40 dark:bg-gray-950/50 shadow-lg dark:shadow-black z-10"
+          <a
+            class="absolute top-10 right-0 cursor-pointer hover:pause hover:opacity-100 md:-right-5 animate-float-reverse grid place-items-center p-3 w-20 h-20 rounded-lg bg-slate-200/40 dark:bg-gray-950/50 shadow-lg dark:shadow-black z-10"
+            href="https://tailwindcss.com/"
           >
             <img src="/img/technologies/tailwindcss.png" alt="Tailwind CSS" />
-          </div>
+          </a>
 
-          <div
-            class="absolute bottom-10 left-5 animate-float-reverse grid place-items-center p-3 w-20 h-20 rounded-lg bg-slate-200/40 dark:bg-gray-950/50 shadow-lg dark:shadow-black z-10"
+          <a
+            class="absolute bottom-10 left-5 cursor-pointer hover:pause hover:opacity-100 animate-float-reverse grid place-items-center p-3 w-20 h-20 rounded-lg bg-slate-200/40 dark:bg-gray-950/50 shadow-lg dark:shadow-black z-10"
+            href="https://www.electronjs.org/"
           >
             <img src="/img/technologies/electron-js.png" alt="Electron JS" />
-          </div>
+          </a>
 
-          <div
-            class="absolute -bottom-10 right-12 animate-float grid place-items-center p-3 w-20 h-20 rounded-lg bg-slate-200/40 dark:bg-gray-950/50 shadow-lg dark:shadow-black z-10"
+          <a
+            class="absolute -bottom-10 right-12 cursor-pointer hover:pause hover:opacity-100 animate-float grid place-items-center p-3 w-20 h-20 rounded-lg bg-slate-200/40 dark:bg-gray-950/50 shadow-lg dark:shadow-black z-10"
+            href="https://supabase.com/"
           >
             <img src="/img/technologies/supabase.png" alt="Supabase" />
-          </div>
+          </a>
           <!-- Technologies End -->
 
           <div

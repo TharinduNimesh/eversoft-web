@@ -31,6 +31,7 @@ useHead({
       <!-- Sections Start -->
       <SectionLanding />
       <SectionAboutUs />
+      <SectionExperience />
       <!-- Sections End -->
     </NuxtLayout>
   </div>

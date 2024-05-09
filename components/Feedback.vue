@@ -1,30 +1,29 @@
 <template>
     <div class="scroller" :data-speed="scrollSpeed">
         <div class="flex justify-center md:justify-start md:max-w-screen-xl mx-auto">
-            <ul class="tag-list scroller__inner flex flex-wrap justify-center md:justify-start gap-4 ">
-                <li v-for="(tag, index) in tags" :key="index"
-                    class="tag-item p-4 h-32 md:w-36 md:h-24 bg-primary-400 rounded shadow-md">{{ tag }}
-                    <p class="line-clamp-6">{{ comment }}</p>
+            <ul class="tag-list scroller__inner flex flex-wrap justify-center md:justify-start gap-4">
+                <li v-for="(tag, index) in tagsWithComments" :key="index"
+                    class="tag-item p-4 h-32 md:w-36 md:h-24 bg-primary-400 rounded shadow-md">
+                    <p>{{ tag.name }}</p>
+                    <p class="line-clamp-6">{{ tag.comment }}</p>
                 </li>
             </ul>
         </div>
     </div>
 </template>
 
-
 <script>
 export default {
     data() {
         return {
-            tags: ['Jhon', 'Doe', 'Devin', 'Jeson', 'Casse', 'Chathura', 'Sudaraka'],
-            comment: [
-                'Hypertext Markup Language - the standard markup language for documents designed to be displayed in a web browser.',
-                'Cascading Style Sheets - a style sheet language used for describing the presentation of a document written in HTML.',
-                'JavaScript - a programming language that enables interactive web pages and dynamic content.',
-                'Static Site Generation - a technique used to generate HTML pages at build time.',
-                'Web Development - the process of building and maintaining websites.',
-                'Animation - the technique of creating the illusion of motion and shape change.',
-                'User Interface/User Experience - the overall look and feel of a product and its usability.'
+            tagsWithComments: [
+                { name: 'Jhon', comment: 'Hypertext Markup Language - the standard markup language for documents designed to be displayed in a web browser.' },
+                { name: 'Doe', comment: 'Cascading Style Sheets - a style sheet language used for describing the presentation of a document written in HTML.' },
+                { name: 'Devin', comment: 'JavaScript - a programming language that enables interactive web pages and dynamic content.' },
+                { name: 'Jeson', comment: 'Static Site Generation - a technique used to generate HTML pages at build time.' },
+                { name: 'Casse', comment: 'Web Development - the process of building and maintaining websites.' },
+                { name: 'Chathura', comment: 'Animation - the technique of creating the illusion of motion and shape change.' },
+                { name: 'Sudaraka', comment: 'User Interface/User Experience - the overall look and feel of a product and its usability.' }
             ],
             scrollSpeed: 'slow'
         };
@@ -39,10 +38,8 @@ export default {
         addAnimation(scrollers) {
             scrollers.forEach((scroller) => {
                 scroller.setAttribute("data-animated", true);
-
                 const scrollerInner = scroller.querySelector(".scroller__inner");
                 const scrollerContent = Array.from(scrollerInner.children);
-
                 scrollerContent.forEach((item) => {
                     const duplicatedItem = item.cloneNode(true);
                     duplicatedItem.setAttribute("aria-hidden", true);
@@ -53,7 +50,6 @@ export default {
     },
 };
 </script>
-
 
 <style lang="css">
 .scroller {

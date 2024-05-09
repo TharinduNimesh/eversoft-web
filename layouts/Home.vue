@@ -18,6 +18,7 @@ onMounted(() => {
     <!-- Main Start -->
     <main class="relative flex flex-col">
       <slot />
+      <Feedback />
     </main>
     <!-- Main End -->
 

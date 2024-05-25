@@ -1,24 +1,43 @@
 <script setup lang="ts">
 import * as THREE from "three";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 
 const threeGlobeCanvas = ref<HTMLCanvasElement | null>(null);
 const renderer = ref();
+const controls = ref<OrbitControls | null>(null);
 const sizes = ref({
   width: 0,
   height: 0,
 });
 
 const scene = new THREE.Scene();
-const boxGeometry = new THREE.SphereGeometry(13, 64, 32);
-const boxMaterial = new THREE.MeshStandardMaterial({ color: "#004cff" });
-const box = new THREE.Mesh(boxGeometry, boxMaterial);
-scene.add(box);
+const globe = new THREE.SphereGeometry(13, 256, 128);
 
-const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
-directionalLight.position.set(0, 10, 10);
+const earthTexture = new THREE.TextureLoader().load("/textures/earth_daymap.jpg");
+const globeMaterial = new THREE.MeshStandardMaterial({
+  color: 0xffffff,
+  flatShading: true,
+  roughness: 0.5,
+  map: earthTexture,
+});
+
+const globeMesh = new THREE.Mesh(globe, globeMaterial);
+globeMesh.castShadow = true;
+globeMesh.receiveShadow = true;
+scene.add(globeMesh);
+
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+scene.add(ambientLight);
+
+const directionalLight = new THREE.DirectionalLight(0xffffff, 2);
+directionalLight.position.set(10, 15, 10);
 directionalLight.castShadow = true;
-
 scene.add(directionalLight);
+
+const spotLight = new THREE.SpotLight(0xffffff, 0.5);
+spotLight.position.set(0, 10, 0);
+spotLight.castShadow = true;
+scene.add(spotLight);
 
 const camera = new THREE.PerspectiveCamera(
   45,
@@ -41,9 +60,19 @@ onMounted(() => {
   //   renderer.value.setClearColor(0x000000, 0); // the default
   renderer.value.setSize(sizes.value.width, sizes.value.height);
   renderer.value.shadowMap.enabled = true;
+  renderer.value.setPixelRatio(2);
+
+  controls.value = new OrbitControls(camera, renderer.value.domElement);
+  controls.value.enableDamping = true;
+  controls.value.enablePan = false;
+  controls.value.enableZoom = false;
+  controls.value.autoRotate = true;
+  controls.value.autoRotateSpeed = 5;
 
   //   update camera aspect ratio
   camera.aspect = sizes.value.width / sizes.value.height;
+  camera.updateProjectionMatrix();
+  controls.value.update();
 
   window.addEventListener("resize", () => {
     // update sizes
@@ -52,6 +81,7 @@ onMounted(() => {
 
     // update camera
     camera.aspect = sizes.value.width / sizes.value.height;
+    controls.value?.update();
     camera.updateProjectionMatrix();
 
     // update renderer

@@ -2,6 +2,14 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 
+const color = useColorMode();
+onMounted(() => {
+  handleGlobeModes();
+});
+watch(color, () => {
+  handleGlobeModes();
+});
+
 const threeGlobeCanvas = ref<HTMLCanvasElement | null>(null);
 const renderer = ref();
 const controls = ref<OrbitControls | null>(null);
@@ -11,33 +19,48 @@ const sizes = ref({
 });
 
 const scene = new THREE.Scene();
+
+const globeGroup = new THREE.Group();
+scene.add(globeGroup);
+
 const globe = new THREE.SphereGeometry(13, 256, 128);
 
-const earthTexture = new THREE.TextureLoader().load("/textures/earth_daymap.jpg");
+const earthDayTexture = new THREE.TextureLoader().load(
+  "/textures/earth_day_map.jpg"
+);
+const earthNightTexture = new THREE.TextureLoader().load(
+  "/textures/earth_night_map.jpg"
+);
 const globeMaterial = new THREE.MeshStandardMaterial({
-  color: 0xffffff,
-  flatShading: true,
-  roughness: 0.5,
-  map: earthTexture,
+  map: earthDayTexture,
 });
 
 const globeMesh = new THREE.Mesh(globe, globeMaterial);
 globeMesh.castShadow = true;
 globeMesh.receiveShadow = true;
-scene.add(globeMesh);
+globeGroup.add(globeMesh);
 
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+const cloudsMat = new THREE.MeshStandardMaterial({
+  map: new THREE.TextureLoader().load("/textures/cloud_map.jpg"),
+  transparent: true,
+  opacity: 0.4,
+});
+const cloudsMesh = new THREE.Mesh(globe, cloudsMat);
+cloudsMesh.scale.set(1.01, 1.01, 1.01);
+globeGroup.add(cloudsMesh);
+
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
 scene.add(ambientLight);
 
-const directionalLight = new THREE.DirectionalLight(0xffffff, 2);
+const directionalLight2 = new THREE.DirectionalLight(0xffffff, 1);
+directionalLight2.position.set(-20, -5, -10);
+directionalLight2.castShadow = true;
+scene.add(directionalLight2);
+
+const directionalLight = new THREE.DirectionalLight(0xffffff, 5);
 directionalLight.position.set(10, 15, 10);
 directionalLight.castShadow = true;
 scene.add(directionalLight);
-
-const spotLight = new THREE.SpotLight(0xffffff, 0.5);
-spotLight.position.set(0, 10, 0);
-spotLight.castShadow = true;
-scene.add(spotLight);
 
 const camera = new THREE.PerspectiveCamera(
   45,
@@ -66,8 +89,7 @@ onMounted(() => {
   controls.value.enableDamping = true;
   controls.value.enablePan = false;
   controls.value.enableZoom = false;
-  controls.value.autoRotate = true;
-  controls.value.autoRotateSpeed = 5;
+  // controls.value.autoRotate = true;
 
   //   update camera aspect ratio
   camera.aspect = sizes.value.width / sizes.value.height;
@@ -92,14 +114,33 @@ onMounted(() => {
   loop();
 });
 
+function handleGlobeModes() {
+  if (color.value === "dark") {
+    directionalLight.intensity = 1;
+    ambientLight.intensity = 0.3;
+    globeMaterial.map = earthNightTexture;
+  } else {
+    directionalLight.intensity = 5;
+    ambientLight.intensity = 0.6;
+    globeMaterial.map = earthDayTexture;
+  }
+}
+
 const loop = () => {
+  globeMesh.rotation.y += 0.001;
+  globeMesh.rotation.x += 0.001;
+
+  cloudsMesh.rotation.y += 0.0015;
+  cloudsMesh.rotation.x += 0.0015;
+
   renderer.value.render(scene, camera);
+  controls.value?.update();
   window.requestAnimationFrame(loop);
 };
 </script>
 
 <template>
-  <section class="flex justify-center">
+  <section class="flex justify-center bg-[url(/img/elements/globe-background.png)] bg-contain bg-no-repeat bg-left-top">
     <div class="container grid grid-cols-2 gap-6 px-4 py-16 lg:px-8">
       <div class="col-span-full lg:col-span-1 min-h-[400px]">
         <canvas ref="threeGlobeCanvas" class="w-full h-full"></canvas>
